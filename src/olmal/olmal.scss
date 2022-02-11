@@ -1,0 +1,216 @@
+@font-face{
+  font-family: 'kang';
+  src: url("../font/kang.ttf");
+  }
+
+$font-color : #3d3d3d;
+
+
+// COMMON
+
+body {
+  margin : 0;
+  font-size : 10px;
+} 
+.App {
+  min-width: 340px;
+  max-width: 700px;
+  margin: 0 auto;
+  border-left: solid 1px #e2e2e2;
+  border-right: solid 1px #e2e2e2;
+}
+
+
+// STORY
+
+.story-container {
+  display: flex;
+  position: relative;
+  height: 115px;
+  width: 100%;
+  border-bottom: 1px solid #ebebeb;
+  .story-circles {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    li {
+      img {
+        width: 70px;
+        margin-left: 15px;
+      }
+      span {
+        font-family: 'kang', sans-serif;
+        font-size: 16px;
+        display: block;
+        text-align: center;
+        margin-top: 3px;
+        margin-left: 15px;
+      }
+    }
+  }
+}
+
+// MY-NAME
+
+
+.my-name-container {
+  display: flex;
+  top: 0;
+  width: 100%;
+  height: 65px;
+  .profile {
+    height: 65%;
+    width: auto;
+    margin: auto 15px;
+  }
+  span {
+    font-family: 'kang', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin: auto 0;
+    transform: translateY(-3px);
+  }
+  .badge {
+    padding: 0;
+    width: auto;
+    height: 20%;
+    margin: auto 8px;
+  }
+}
+
+ /* FILE UPLOAD */
+ .file-upload {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  max-height: 900px;
+  margin: 0 auto;
+}
+
+.file-upload-btn {
+  width: 100%;
+  margin: 0;
+  color: #fff;
+  background: #1FB264;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  border-bottom: 4px solid #15824B;
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.file-upload-btn:hover {
+  background: #1AA059;
+  color: #ffffff;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+
+.file-upload-btn:active {
+  border: 0;
+  transition: all .2s ease;
+}
+
+.file-upload-content {
+  display: none;
+  text-align: center;
+  min-width: 300px;
+  width: 95%;
+  height: 95%;
+  margin: auto;
+}
+
+.file-upload-input {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 95%;
+  height: 95%;
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.file-upload-image {
+  display: block;
+  max-width: 95%;
+  margin: auto;
+}
+
+.image-upload-wrap {
+  position: relative;
+  object-fit: contain;
+  background-color: #ffffff;
+  background-image: url('../../public/images/square.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-width: 340px;
+  min-height: 340px;
+  width: 95%;
+  height: 95%;
+  margin: auto;
+}
+
+.image-dropping,
+.image-upload-wrap:hover {
+  background-color: #e4e4e4;
+}
+
+.image-title-wrap {
+  padding: 0 15px 15px 15px;
+  color: #222;
+}
+
+.drag-text {
+  text-align: center;
+  height: 95vw;
+  h3 {
+    width: 60%;
+    font-weight: 100;
+    color: #9b9b9b;
+    font-family: 'kang';
+    font-size: 24px;
+    line-height: 1.53;
+    margin: auto;
+    padding-top: 40%;
+  }
+}
+
+
+
+
+/* BOTTOM ICONS */
+.bottom-icons-container {
+display: flex;
+width: 100%;
+height: 50px;
+  img {
+  width: 26px;
+  height: 26px;
+  margin: 12px 0 0 17px;
+  }
+}
+
+/* RESULT */
+.result {
+margin: 5px 10px 10px 17px;
+
+  #label-container {
+  width: 80%;
+  color: $font-color;
+  font-family: 'kang';
+  font-size: 23px;
+  }
+
+  .result-message {
+  font-family: 'kang';
+  font-size: 30px;
+  font-weight: 700;
+  color: $font-color;
+  margin-top: 10px;
+  }
+}
