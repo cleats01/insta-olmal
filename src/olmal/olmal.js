@@ -1,17 +1,19 @@
 /* eslint-disable */
 
-import React from 'react';
+import {React, useState } from 'react';
 import './olmal.scss';
 import $ from 'jquery';
 
-function Olmal() {
 
+function Olmal(props) {
+  const [heart,setHeart] = useState('heart.jpg');
+  const onCapture = props.onCapture;
 
   return (
     <div className='Olmal'>
       <Story />
       <MyName />
-      <MainContent />
+      <MainContent heart={heart} setHeart={setHeart} onCapture={onCapture}/>
     </div>
   )
 }
@@ -51,7 +53,7 @@ function MyName() {
   )
 }
 
-function MainContent() {
+function MainContent(props) {
   return (
     <div className='mainContent'>
 
@@ -74,8 +76,8 @@ function MainContent() {
       </div>
 
       <div className="bottom-icons-container">
-            <img src="./images/heart.jpg" alt="heart" className="heart" />
-            <img src="./images/camera.jpg" alt="camera" className="plane" />            
+            <img src={'./images/' + props.heart } onClick={()=>{props.setHeart('red-heart.png')}} alt="heart" className="heart" />
+            <img src="./images/camera.jpg" alt="camera" className="plane" onClick={props.onCapture}/>            
             <img src="./images/retry.png" alt="try-again" className="try-again-btn" onClick={()=>{window.location.reload()}} />
       </div>
 

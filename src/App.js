@@ -1,21 +1,35 @@
 /* eslint-disable */
 
 import { useEffect, useState } from 'react';
-import { Link, Route, Switch, useLocation } from 'react-router-dom';
+import { Link, Route, useLocation } from 'react-router-dom';
 import './App.scss';
 import Olmal from './olmal/olmal.js';
-import {Helmet} from 'react-helmet';
+import html2canvas from 'html2canvas';
 
 
 function App() {
   const location = useLocation();
-  console.log(location.pathname)
+  const [heart,setHeart] = useState('heart.jpg');
 
+  const onCapture = () => {
+    html2canvas(document.getElementById('div')).then(canvas=>{
+      onSaveAs(canvas.toDataURL('image/png'), 'image-download.png')
+    });
+  };
+
+  const onSaveAs = (uri,filename) => {
+    const link = document.createElement('a');
+    document.body.appendChild(link);
+    link.href = uri;
+    link.download = filename;
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
-    <div className="App">
+    <div className="App" id='div' >
 
-      <NavBar location={location}/>
+      <NavBar location={location} heart={heart} setHeart={setHeart}/>
 
       <Route exact path="/">
         <img className='mainLogo' src='./images/logo1.jpg' alt='olliggamalgga' />
@@ -25,9 +39,9 @@ function App() {
       </Route>
 
       <Route exact path="/olmal">
-        <Olmal />
+        <Olmal onCapture={onCapture} />
       </Route>
-
+      
     </div>
   );
 }
@@ -40,7 +54,7 @@ function NavBar(props) {
         ? <Link to="/"><img className='logo1' src='./images/logo1.jpg' alt='logo1' /></Link>
         : null
       }
-      <img className='heart' src='./images/heart.jpg' alt='heart' />
+      <img className='heart' src={'./images/' + props.heart } onClick={()=>{props.setHeart('red-heart.png')}} alt='heart' />
       <img className='plane' src='./images/plane.jpg' alt='plane' />
     </div>
   )
