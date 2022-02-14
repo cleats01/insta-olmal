@@ -59,7 +59,7 @@ function MainContent() {
         <div className="image-upload-wrap">
             <input className="file-upload-input" type='file' onChange={(e)=>{readURL(e.target)}} accept="image/*" />
             <div className="drag-text">
-                <h3 className="mb-4 pb-3 pt-2 upload-text">
+                <h3 className="upload-text">
                     여기에 새로운<br/>사진을 업로드!
                 </h3>
             </div>
