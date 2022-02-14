@@ -13,9 +13,10 @@ function App() {
 
   const onCapture = () => {
     html2canvas(document.getElementById('div')).then(canvas=>{
-      onSaveAs(canvas.toDataURL('image/png'), 'image-download.png')
+      onSaveAs(canvas.toDataURL('image/png'), 'olmal.png')
     });
   };
+
 
   const onSaveAs = (uri,filename) => {
     const link = document.createElement('a');
@@ -26,10 +27,23 @@ function App() {
     document.body.removeChild(link);
   };
 
+  function copyUrl () {
+    const tempElement = document.createElement("textarea");
+    document.body.appendChild(tempElement);
+    tempElement.value = "https://agt-olmal.netlify.app/";
+    tempElement.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempElement);
+    alert('올릴까 말까의 주소가 클립보드에 복사되었습니다.');
+  }
+
+
+
+
   return (
     <div className="App" id='div' >
 
-      <NavBar location={location} heart={heart} setHeart={setHeart}/>
+      <NavBar location={location} heart={heart} setHeart={setHeart} copyUrl={copyUrl}/>
 
       <Route exact path="/">
         <img className='mainLogo' src='./images/logo1.jpg' alt='olliggamalgga' />
@@ -55,7 +69,7 @@ function NavBar(props) {
         : null
       }
       <img className='heart' src={'./images/' + props.heart } onClick={()=>{props.setHeart('red-heart.png')}} alt='heart' />
-      <img className='plane' src='./images/plane.jpg' alt='plane' />
+      <img className='plane' src='./images/plane.jpg' onClick={()=>{props.copyUrl()}} alt='plane' />
     </div>
   )
 }

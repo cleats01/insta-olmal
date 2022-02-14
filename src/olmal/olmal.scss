@@ -15,9 +15,8 @@ body {
 .App {
   min-width: 340px;
   max-width: 700px;
+  min-height: 1000px;
   margin: 0 auto;
-  border-left: solid 1px #e2e2e2;
-  border-right: solid 1px #e2e2e2;
 }
 
 
@@ -41,6 +40,7 @@ body {
       span {
         font-family: 'kang', sans-serif;
         font-size: 16px;
+        color: $font-color;
         display: block;
         text-align: center;
         margin-top: 3px;
@@ -67,6 +67,7 @@ body {
     font-family: 'kang', sans-serif;
     font-size: 18px;
     font-weight: 700;
+    color: $font-color;
     margin: auto 0;
     transform: translateY(-3px);
   }
