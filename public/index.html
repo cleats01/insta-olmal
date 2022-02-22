@@ -31,6 +31,7 @@
   </head>
   <body>
     <div id="root"></div>
+    <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
     <script>
         function readURL(input) {
           console.log(input.files)
@@ -92,15 +93,42 @@
             console.log(prediction[0].probability)
             console.log(prediction[1].probability)
             console.log(prediction[2].probability)
-  
-            var resultMessege;
-            const score = (prediction[0].probability.toFixed(2) * 100 + prediction[1].probability.toFixed(2) * 49 + prediction[2].probability.toFixed(2) * 9).toFixed()
 
-            if (score >= 70) {
-                resultMessege = "70점이상"
-            } else if (score >= 40) {
+            const score = +(prediction[0].probability.toFixed(2) * 82 + prediction[1].probability.toFixed(2) * 48 + prediction[2].probability.toFixed(2) * 20).toFixed();  
+
+            console.log(score);
+
+
+            let scoreRandom = score;
+
+            const scores = [(prediction[0].probability*(10**10)).toFixed(0)%10,(prediction[1].probability*(10**10)).toFixed(0)%10,(prediction[2].probability*(10**10)).toFixed(0)%10]
+
+            console.log(scores);
+
+            switch (Math.max.apply(null,scores)) {
+              case scores[0]:
+                scoreRandom = score + Math.max.apply(null,scores)*2;
+                break;
+              case scores[1]:
+                scoreRandom = score;
+                break;
+              case scores[2]:
+                scoreRandom = score - Math.max.apply(null,scores)*2;
+                break;
+            }
+
+            console.log(scoreRandom);
+
+            var resultMessege;
+            if (scoreRandom >= 80) {
+                resultMessege = "80점이상"
+            } else if (scoreRandom >= 60) {
+                resultMessege = "60점이상"
+            } else if (scoreRandom >= 40) {
                 resultMessege = "40점이상"
-            } else if (score >= 0) {
+            } else if (scoreRandom >= 20) {
+                resultMessege = "20점이상"
+            } else if (scoreRandom >= 0) {
                 resultMessege = "0점이상"
             } else {
                 resultMessege = "알수없음"
@@ -109,7 +137,7 @@
   
             $('.result-message').html(resultMessege);
             for (let i = 0; i < 1; i++) {
-                const classPrediction = "갬성 수치 :  " + score + " / 100 점";
+                const classPrediction = "갬성 수치 :  " + scoreRandom + " / 100 점";
                 labelContainer.childNodes[i].innerHTML = classPrediction;
             }
           }

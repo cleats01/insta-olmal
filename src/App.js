@@ -55,7 +55,13 @@ function App() {
       <Route exact path="/olmal">
         <Olmal onCapture={onCapture} />
       </Route>
-      
+
+      <ins className="kakao_ad_area" style={{display: 'none'}} 
+        data-ad-unit    = "DAN-qUn5VMvCqsATkbNB" 
+        data-ad-width   = "320" 
+        data-ad-height  = "100">
+      </ins> 
+
     </div>
   );
 }
