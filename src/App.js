@@ -48,7 +48,7 @@ function App() {
       <Route exact path="/">
         <img className='mainLogo' src='./images/logo1.jpg' alt='olliggamalgga' />
         <Title />
-        <img className='imageLogo' src='./images/logo2.png' alt='olmal' />
+        <img className='imageLogo' src='./images/logoImage.png' alt='olmal' />
         <Link to="/olmal"><button className='startBtn'>시작 해보기</button></Link>
       </Route>
 

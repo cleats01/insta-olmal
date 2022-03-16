@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
-      name="description"
+      name="olliggamalgga"
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
@@ -94,7 +94,7 @@
             console.log(prediction[1].probability)
             console.log(prediction[2].probability)
 
-            const score = +(prediction[0].probability.toFixed(2) * 82 + prediction[1].probability.toFixed(2) * 48 + prediction[2].probability.toFixed(2) * 20).toFixed();  
+            const score = +(prediction[0].probability.toFixed(2) * 90 + prediction[1].probability.toFixed(2) * 48 + prediction[2].probability.toFixed(2) * 20).toFixed();  
 
             console.log(score);
 
@@ -107,29 +107,32 @@
 
             switch (Math.max.apply(null,scores)) {
               case scores[0]:
-                scoreRandom = score + Math.max.apply(null,scores)*2;
+                scoreRandom = score + +(Math.max.apply(null,scores)*1.1).toFixed(0);
                 break;
               case scores[1]:
                 scoreRandom = score;
                 break;
               case scores[2]:
-                scoreRandom = score - Math.max.apply(null,scores)*2;
+                scoreRandom = score - +(Math.max.apply(null,scores)*1).toFixed(0);
                 break;
             }
 
             console.log(scoreRandom);
 
             var resultMessege;
-            if (scoreRandom >= 80) {
-                resultMessege = "80점이상"
+            if (scoreRandom == 100) {
+                resultMessege = `감성수치 만점!!
+                이건 무조건 피드 박제. 왜 아직도 안올려?`
+            } else if (scoreRandom >= 80) {
+                resultMessege = "혹시 셀럽이니..? 갬성이 장난이 아닌데?"
             } else if (scoreRandom >= 60) {
-                resultMessege = "60점이상"
+                resultMessege = "오~ 좋아좋아~ 갬성 2%만 더 채워보자!"
             } else if (scoreRandom >= 40) {
-                resultMessege = "40점이상"
+                resultMessege = "괜찮은데? 이정도면 스토리에라도 올려야돼."
             } else if (scoreRandom >= 20) {
-                resultMessege = "20점이상"
+                resultMessege = "조금 아쉽다.. 구도를 살짝 바꿔보는게 어때?"
             } else if (scoreRandom >= 0) {
-                resultMessege = "0점이상"
+                resultMessege = "음.. 잠깐 올리지말아봐.. 우리 다시 찍어볼까?"
             } else {
                 resultMessege = "알수없음"
             }

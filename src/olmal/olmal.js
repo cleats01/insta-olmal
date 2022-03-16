@@ -27,7 +27,7 @@ function Story() {
               <span>Team_agt</span>
           </li>
           <li>
-            <img src="./images/파이리.png" alt="10k" />
+            <img src="./images/hwprofile.png" alt="10k" />
             <span>HW_Kwon</span>
           </li>
           <li>
@@ -62,7 +62,13 @@ function MainContent(props) {
             <input className="file-upload-input" type='file' onChange={(e)=>{readURL(e.target)}} accept="image/*" />
             <div className="drag-text">
                 <h3 className="upload-text">
-                    여기에 새로운<br/>사진을 업로드!
+                  여기에 사진을 업로드 하세요!<br/><br/>
+                  <strong>TIP! :</strong><br/>
+                  <div className='tip'>
+                    <strong>인물 사진을</strong> 넣어주세요<br/>
+                    <strong>전신샷</strong>을 가장 정확히 분석합니다<br/>
+                    사진은 <strong>절대</strong> 저장되지 않습니다
+                  </div>
                 </h3>
             </div>
         </div>
@@ -77,7 +83,7 @@ function MainContent(props) {
 
       <div className="bottom-icons-container">
             <img src={'./images/' + props.heart } onClick={()=>{props.setHeart('red-heart.png')}} alt="heart" className="heart" />
-            <img src="./images/camera.jpg" alt="camera" className="plane" onClick={props.onCapture}/>            
+            <img src="./images/camera.png" alt="camera" className="plane" onClick={props.onCapture}/>            
             <img src="./images/retry.png" alt="try-again" className="try-again-btn" onClick={()=>{window.location.reload()}} />
       </div>
 

@@ -129,14 +129,20 @@ $font-color : #3d3d3d;
 
 .drag-text {
   text-align: center;
-  padding: calc(50% - 37px) 0;
+  padding-top: 0;
   .upload-text {
     font-weight: 100;
     color: #9b9b9b;
     font-family: 'kang';
-    font-size: 24px;
+    font-size: 22px;
+    font-weight: 700;
     line-height: 1.53;
+    padding-top: 25%;
     margin: auto;
+    .tip {
+      font-size: 18px;
+      font-weight: 400;
+    }
   }
 }
 
@@ -163,12 +169,13 @@ margin: 5px 10px 10px 17px;
   width: 80%;
   color: $font-color;
   font-family: 'kang';
-  font-size: 23px;
+  font-size: 18px;
+  font-weight: 700;
   }
 
   .result-message {
   font-family: 'kang';
-  font-size: 30px;
+  font-size: 18px;
   font-weight: 700;
   color: $font-color;
   margin-top: 10px;
