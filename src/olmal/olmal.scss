@@ -163,14 +163,21 @@ height: 50px;
 
 /* RESULT */
 .result {
-margin: 5px 10px 10px 17px;
+margin: 0px 10px 10px 17px;
 
   #label-container {
   width: 80%;
   color: $font-color;
   font-family: 'kang';
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 400;
+
+    .scoreResult {
+      display: inline;
+      color: #fda65e;
+      font-size: 28px;
+      font-weight: 700;
+    }
   }
 
   .result-message {
@@ -180,4 +187,15 @@ margin: 5px 10px 10px 17px;
   color: $font-color;
   margin-top: 10px;
   }
+  
+  #loading {
+    font-family: 'kang';
+    font-size: 16px;
+    font-weight: 400;
+    color: $font-color;
+    display: none;
+  }
 }
+
+
+

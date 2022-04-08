@@ -46,7 +46,7 @@ function Story() {
 function MyName() {
   return (
     <div className="my-name-container">
-      <img className="profile" src="./images/agt.png" alt="myProfile" />
+      <img className="profile" src="./images/userProfile.png" alt="myProfile" />
       <span>profile_name</span>
       <img className="badge" src="./images/blue.jpg" alt="badge" />
     </div>
@@ -75,9 +75,6 @@ function MainContent(props) {
 
         <div className="file-upload-content">
             <img className="file-upload-image" id="insta-photo" src="#" alt="your image" />
-            <div id="loading" className="animated bounce">
-                <p className="text-center">AI가 사진의 감성지수를 파악중입니다.</p>
-            </div>
         </div>
       </div>
 
@@ -90,6 +87,9 @@ function MainContent(props) {
       <div className="result">
         <div id="label-container"></div>
         <p className="result-message"></p>
+        <div id="loading" className="animated bounce">
+                <p className="text-center">AI가 사진의 감성수치를 파악중입니다.</p>
+        </div>
       </div>
 
     </div>

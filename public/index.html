@@ -103,8 +103,6 @@
 
             const scores = [(prediction[0].probability*(10**10)).toFixed(0)%10,(prediction[1].probability*(10**10)).toFixed(0)%10,(prediction[2].probability*(10**10)).toFixed(0)%10]
 
-            console.log(scores);
-
             switch (Math.max.apply(null,scores)) {
               case scores[0]:
                 scoreRandom = score + +(Math.max.apply(null,scores)*1.1).toFixed(0);
@@ -116,8 +114,6 @@
                 scoreRandom = score - +(Math.max.apply(null,scores)*1).toFixed(0);
                 break;
             }
-
-            console.log(scoreRandom);
 
             var resultMessege;
             if (scoreRandom == 100) {
@@ -140,7 +136,7 @@
   
             $('.result-message').html(resultMessege);
             for (let i = 0; i < 1; i++) {
-                const classPrediction = "갬성 수치 :  " + scoreRandom + " / 100 점";
+                const classPrediction =  "감성수치 :  " + "<div class='scoreResult'>" + scoreRandom + "</div>" + " / 100 점";
                 labelContainer.childNodes[i].innerHTML = classPrediction;
             }
           }
